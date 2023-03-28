@@ -15,5 +15,9 @@
             "app\\": "app",
             "traits\\": "vendor/fa/traits"
         }
+    },
+    "require": {
+        "gabordemooij/redbean": "^5.7.1",
+        "curl/curl": "^2.5"
     }
 }

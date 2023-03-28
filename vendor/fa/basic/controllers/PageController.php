@@ -139,12 +139,6 @@ class PageController extends Controller
 
     public function render($view)
     {
-        debug(App::$app->getWidgets());
-        debug(App::$app->getModules());
-        echo '<br>==============';
-        debug(App::$app->getPage());
-        debug(App::$app->getRequest());
-        debug(App::$app->getGet());
         $html = '';
         $html .= self::headerCreate();
         $html .= $view . PHP_EOL;

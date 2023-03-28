@@ -103,7 +103,7 @@ class Router
                 return 1;
             }
             $res_land = -1;
-            $res_languages = -1;
+            $res_language = -1;
             preg_match($regex, $page_arr[0], $prefix);
             if ($prefix) {
                 if (array_key_exists('delimiter', $ll)) {
@@ -151,7 +151,7 @@ class Router
                                 if (is_array($languages)) {
                                     foreach ($languages as $key => $value) {
                                         if ($prefix_arr[0] === $key) {
-                                            $res_languages = self::setLanguage($value);
+                                            $res_language = self::setLanguage($value);
                                             break;
                                         }
                                     }
@@ -164,7 +164,7 @@ class Router
                                 if (is_array($languages)) {
                                     foreach ($languages as $key => $value) {
                                         if ($prefix_arr[1] === $key) {
-                                            $res_languages = self::setLanguage($value);
+                                            $res_language = self::setLanguage($value);
                                             break;
                                         }
                                     }
@@ -178,46 +178,50 @@ class Router
                     }
                 } else {
                     if (array_key_exists('land', $ll)) {
-                    switch ($ll['land']) {
-                        case '0':
-                            if (array_key_exists('lands', $ll)) {
-                                $lands = $ll['lands'];
-                                if (is_array($lands)) {
-                                    foreach ($lands as $key => $value) {
-                                        if ($prefix[0] === $key) {
-                                            $res_land = self::setLand($value);
-                                            break;
+                        switch ($ll['land']) {
+                            case '0':
+                                if (array_key_exists('lands', $ll)) {
+                                    $lands = $ll['lands'];
+                                    if (is_array($lands)) {
+                                        foreach ($lands as $key => $value) {
+                                            if ($prefix[0] === $key) {
+                                                $res_land = self::setLand($value);
+                                                break;
+                                            }
                                         }
                                     }
                                 }
-                            }
-                            break;
-                        default:
-                            return -100;
-                    }
+                                break;
+                            default:
+                                return -100;
+                        }
+                    } else {
+                        $res_land = 1;
                     }
                     if (array_key_exists('language', $ll)) {
-                    switch ($ll['language']) {
-                        case '0':
-                            if (array_key_exists('languages', $ll)) {
-                                $languages = $ll['languages'];
-                                if (is_array($languages)) {
-                                    foreach ($languages as $key => $value) {
-                                        if ($prefix[0] === $key) {
-                                            $res_languages = self::setLanguage($value);
-                                            break;
+                        switch ($ll['language']) {
+                            case '0':
+                                if (array_key_exists('languages', $ll)) {
+                                    $languages = $ll['languages'];
+                                    if (is_array($languages)) {
+                                        foreach ($languages as $key => $value) {
+                                            if ($prefix[0] === $key) {
+                                                $res_language = self::setLanguage($value);
+                                                break;
+                                            }
                                         }
                                     }
                                 }
-                            }
-                            break;
-                        default:
-                            return -100;
-                    }
+                                break;
+                            default:
+                                return -100;
+                        }
+                    } else {
+                        $res_language = 1;
                     }
                 }
             }
-            if ($res_land > 0 && $res_languages > 0) {
+            if ($res_land > 0 && $res_language > 0) {
                 array_shift(self::$page_arr);
                 return 1;
             } else {
