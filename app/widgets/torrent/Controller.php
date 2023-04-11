@@ -69,7 +69,7 @@ class Controller extends WidgetController
             }
         //---
         }
-        debug($this->params);
+        //debug($this->params);
         //search
         if ( isset($this->params['search']['value']) && !empty($this->params['search']['value'])) {
             $url = rtrim( $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . App::$app->getUrl() . $this->direct, '/' ) . '/' . $this->params['search']['value'];
@@ -80,7 +80,7 @@ class Controller extends WidgetController
             $e = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
             $search = str_replace($del, '', $e);
             $_SESSION[$this->prefix_kebab . 'search'] = $search;
-            debug($this->params);
+            //debug($this->params);
             if ( isset($_SESSION[$this->prefix_kebab . 'add']) && $_SESSION[$this->prefix_kebab . 'add'] == 1 ) {
                 $this->model->save('request', ['request' => $search, 'lang' => App::$app->getLanguage()['code']]);
                 $_SESSION[$this->prefix_kebab . 'last'] = $this->model->getCellLastRequest();
