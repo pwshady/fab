@@ -8,4 +8,10 @@ use fa\App;
 
 class Controller extends WidgetController
 {
+
+    public function run()
+    {
+        parent::run();
+    }
+
 }
