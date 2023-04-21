@@ -6,3 +6,4 @@
 [2023-03-23 03:15:39] Code: 2 | Message: Undefined property: app\widgets\torrent\Controller::$widget | File: /opt/lampp/htdocs/fab/app/widgets/torrent/Controller.php | Line: 118
 [2023-03-23 03:25:38] Code: 2 | Message: Undefined property: app\widgets\torrent\Controller::$page | File: /opt/lampp/htdocs/fab/app/widgets/torrent/Controller.php | Line: 75
 [2023-03-23 03:49:00] Code: 2 | Message: Undefined array key "search" | File: /opt/lampp/htdocs/fab/app/widgets/torrent/Controller.php | Line: 81
+[2023-04-21 13:24:37] Code: 2 | Message: Undefined variable $w_dtorrent | File: /opt/lampp/htdocs/fab/app/pages/torrent/__/indexView.php | Line: 1
